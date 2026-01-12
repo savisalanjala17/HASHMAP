@@ -40,3 +40,53 @@ class Main {
         System.out.print(maxxkey+"   "+minnkey);
     }
 }
+
+
+
+
+
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int maxKey = arr[0];
+        int minKey = arr[0];
+
+        int maxFreq = 0;
+        int minFreq = n;
+
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+
+            // count frequency of arr[i]
+            for (int j = 0; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                }
+            }
+
+            if (count > maxFreq) {
+                maxFreq = count;
+                maxKey = arr[i];
+            }
+
+            if (count < minFreq) {
+                minFreq = count;
+                minKey = arr[i];
+            }
+        }
+
+        System.out.println(maxKey + " " + minKey);
+    }
+}
+
